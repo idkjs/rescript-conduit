@@ -21,7 +21,8 @@
     "@ryyppy/rescript-promise",
     "rescript-polished",
     "@rescriptbr/reform",
-    "reschema"
+    "reschema",
+    "rescript-js"
   ],
   "ppx-flags": ["decco/ppx"]
 }

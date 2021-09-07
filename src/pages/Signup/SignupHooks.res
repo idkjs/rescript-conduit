@@ -1,9 +1,10 @@
 type user = {
+  username: string,
   email: string,
   password: string,
 }
 
-type signinPayload = {user: user}
+type signupPayload = {user: user}
 
 @decco
 type loggedUser = {token: string}
@@ -11,13 +12,14 @@ type loggedUser = {token: string}
 @decco
 type response = {user: loggedUser}
 
-let handleSignin = (payload: signinPayload) =>
-  QueryClient.post(~url="/users/login", payload)->Promise.then(json =>{
+let handleSignup = (payload: signupPayload) =>
+  QueryClient.post(~url="/users", payload)->Promise.then(json =>{
     Js.log(("API JSON =>", json))
+    Js.log(("API JSON PAYLOAD =>", payload))
     json->response_decode->Promise.resolve
   })
 
-let useSignin = () => {
+let useSignup = () => {
   let handleSuccess = React.useCallback0((result, _, _) => {
     switch result {
     | Ok(response) => Js.log(("Token =>", response.user.token))
@@ -30,8 +32,8 @@ let useSignin = () => {
   let {mutate} = ReactQuery.useMutation(
     ReactQuery.mutationOptions(
       //
-      ~mutationKey="signin",
-      ~mutationFn=handleSignin,
+      ~mutationKey="signup",
+      ~mutationFn=handleSignup,
       ~onSuccess=handleSuccess,
       (),
     ),
@@ -41,6 +43,7 @@ let useSignin = () => {
     mutate(.
       {
         user: {
+          username: "john",
           email: "john@doe.com",
           password: "myRe4l1ySaf3Passw0rd!#",
         },

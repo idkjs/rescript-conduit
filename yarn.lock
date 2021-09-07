@@ -1782,7 +1782,7 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
-"@ryyppy/rescript-promise@2.1.0":
+"@ryyppy/rescript-promise@2.1.0", "@ryyppy/rescript-promise@^2.0.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@ryyppy/rescript-promise/-/rescript-promise-2.1.0.tgz#a33861274c41360cfbe872cf489f3dcb8dd526e6"
   integrity sha512-+dW6msBrj2Lr2hbEMX+HoWCvN89qVjl94RwbYWJgHQuj8jm/izdPC0YzxgpGoEFdeAEW2sOozoLcYHxT6o5WXQ==
@@ -8824,6 +8824,13 @@ reschema@2.0.3, reschema@^2.0.3:
   integrity sha512-+3PDYWzy1cPMZWE7NETy6/vuvZqIQUFm0J1zBbsWm2848Wzpcy99L/6F13I1jL1emZ1ZWgJKCqgH7LroKSC/jw==
   dependencies:
     reason-react-update "2.0.0"
+
+rescript-js@^0.5.17:
+  version "0.5.17"
+  resolved "https://registry.yarnpkg.com/rescript-js/-/rescript-js-0.5.17.tgz#500ddffddd4669536199da6238628b57d62b05e2"
+  integrity sha512-e/I9u3gAiY3vuPfIvvD+aMRdUhD80fL1JKXmIzX/DOcPHM2mGTx0l1h5C0CdUKBSbeLbZv/63eVsffcTVMxGKw==
+  dependencies:
+    "@ryyppy/rescript-promise" "^2.0.0"
 
 rescript-polished@^1.15.0:
   version "1.15.0"

@@ -12,6 +12,7 @@ let make = () => {
     {switch url.path {
     | list{} => <Signin />
     | list{"signup"} => <Signup />
+    | list{"signin"} => <Signin />
     | _ => "Not found..."->s
     }}
   </ReactQuery.Provider>

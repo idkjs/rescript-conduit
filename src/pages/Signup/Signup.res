@@ -10,6 +10,7 @@ let wrapper = Emotion.Raw.css(
 
 @react.component
 let make = () => {
+  let handleSubmit = SignupHooks.useSignup()
   let (_, devices) = Devices.useDevice()
 
   <Grid height=[xxs(100.0->#pct)]>
@@ -47,17 +48,19 @@ let make = () => {
         width=[xxs(100.0->#pct)]>
         <Typography.Title level=#4> {`Sign up`->s} </Typography.Title>
         <Typography.Paragraph level=#2>
-          {`Already have an acount? `->s} <Link> {`Sign in`->s} </Link>
+          {`Already have an acount? `->s} <Link href="signin"> {`Sign in`->s} </Link>
         </Typography.Paragraph>
-        <Box mt=[xxs(6)] mb=[xxs(2)]> <Input placeholder="Username" /> </Box>
-        <Box mb=[xxs(2)]> <Input placeholder="Email" /> </Box>
-        <Box mb=[xxs(2)]> <Input placeholder="Password" /> </Box>
-        <Button block=true> {`Sign in`->s} </Button>
+        <Box mt=[xxs(6)] mb=[xxs(2)]> <Input placeholder="Username" type_="username" required=true  /> </Box>
+        <Box mt=[xxs(6)] mb=[xxs(2)]>
+          <Input placeholder="Email" type_="email" required=true />
+        </Box>
+        <Box mb=[xxs(2)]> <Input placeholder="Password" type_="password" required=true /> </Box>
+        <Button onClick=handleSubmit block=true> {`Sign up`->s} </Button>
         <Box mt=[xxs(6)]>
           <Typography.Paragraph align={devices.md ? #left : #center} level=#2>
             {`Skip sign-up for now and `->s}
             {devices.md ? React.null : <br />}
-            <Link> {`start reading`->s} </Link>
+            <Link href="startreading"> {`start reading`->s} </Link>
           </Typography.Paragraph>
         </Box>
       </Box>
